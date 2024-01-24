@@ -1,0 +1,40 @@
+﻿@model Pro.Models.NewTable
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Login</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccNo" class="control-label"></label>
+                <input asp-for="AccNo" class="form-control" placeholder="Enter AccNo"/>
+                <span asp-validation-for="AccNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pwd" class="control-label"></label>
+                <input asp-for="Pwd" class="form-control" placeholder="Enter Pin" type="password"/>
+                <span asp-validation-for="Pwd" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" asp-route-id="@Model?.AccNo" />
+               
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
